@@ -14220,7 +14220,7 @@ SUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h3><p>I normalized the image data with Min-Max scaling to a range of [0.1, 0.9]. I do this after generating additional training data through jittering below, and that depends on RGB images.</p>
+<h3 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h3><p>I normalized the image data with Min-Max scaling to a range of [-1.0, 1.0] so that the input has a mean close to zero and equal variance. This makes the problem well-conditioned and makes it easier for the optimizer to find a good solution. I do this after generating additional training data through jittering below, and that depends on RGB images.</p>
 <p>I wanted to let the neural network learn whatever processing was appropriate for classifying the images. I considered performing YUV-conversion and Y-channel global and local contrast normalization as described in [1], but I decided to simply add a color-space transformation layer as described in [2]. This let the neural network figure out the best color-space transformation for this classification problem.</p>
 <p>[1] Pierre Sermanet and Yann LeCun, Traffic Sign Recognition with Multi-Scale Convolutional Networks, URL: <a href="http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf">http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf</a>. Retrieved 1/19/2017.</p>
 <p>[2] Alexandros Karargyris, Color Space Transformation Network, URL: <a href="https://arxiv.org/ftp/arxiv/papers/1511/1511.01064.pdf">https://arxiv.org/ftp/arxiv/papers/1511/1511.01064.pdf</a>. Retrieved 1/19/2017.</p>
